@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;       
+            outline: none;  
+            border: none;  
+        }
+        body{
+            background: linear-gradient(to right, #dfabc5 0%, #1da1f2 100%);      
+            display: grid;
+            height: 100vh;
+            place-items: center;
+        }
+        .title{
+            display: inline-block;
+            margin: 20px;
+            font-size: 40px;
+            position: relative;
+        }
+        .title::before{
+            content: "";
+            background-color: #1da1f2;
+            height: 4px;
+            width: 43px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .container{
+            background-color: white;
+            width: 350px;
+            position: relative;
+            
+        }
+        .logo{
+            position: absolute;
+            right: 20px;
+            top: 20px;            
+        }
+        img{
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+
+        }
+        form{
+            margin-top: 50px;
+        }
+        .text{
+            position: relative;
+            
+        }
+        input{
+            display: block;
+            margin: 20px;
+            width: 300px;
+            height: 30px;
+        }
+        .underline::before{
+            position: absolute;
+            content: "";
+            height: 2px;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            background-color: #ccc;
+        }
+        .underline::after{
+            position: absolute;
+            content: "";
+            height: 2px;
+            width: 100%;
+            background-color: red;
+            left: 0;
+            bottom: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            /* scaleX(0) özelliği, bir elemanın X ekseninde ölçeklendirilmesini belirtir.
+            Bu örnekte, "scaleX" özelliği 0 değerine ayarlanmıştır, bu da elemanın yatay eksende tamamen sıkıştırılacağı anlamına gelir.
+            
+            transform-origin: left özelliği ise, transformasyonun nereden başlayacağını belirtir.
+            Burada "left" değeri kullanılmış, yani ölçeklendirme işlemi elemanın sol kenarından başlayacak.*/
+            transition: all 0.3s ease;
+        }
+        input:focus ~ .underline::after,
+        input:valid ~ .underline::after{
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        input[type="submit"]{
+            background-color: red;
+            border-radius: 5px;
+            color: wheat;
+        }
+
+        input[type="submit"]:hover{
+            background-color: rgb(226, 99, 99);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">            
+        <div class="title">Login</div>
+            <div class="logo">
+                <img src="bayrak.jpg" alt="logo">
+            </div>
+        <form action="#">
+            <div class="text">
+                <input type="email" name="email" placeholder="Email Giriniz..." required>
+                <div class="underline"></div>
+            </div>    
+            <div class="text">
+                <input type="password" name="password" placeholder="Şifre Giriniz..." required>
+                <div class="underline"></div>
+            </div>
+            <input type="submit" value="Giriş Yap">
+        </form>
+    </div>
+
+</body>
+</html>
